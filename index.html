@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id = "bmiForm">
+        <fieldset>
+            <h1>HEALTH SELF-CHECK</h1>
+            <br>
+
+            <h2>Basic Personal Information</h2>
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name"></input><br>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age"></input><br>
+
+            <label>Gender:</label>
+
+            <input type="radio" name="gender" value="Male"> Male</input>
+            <input type="radio" name="gender" value="Female"> Female </input><br>
+
+            <label>Weight (kg):</label>
+            <input type="number" id="weight"></input><br>
+
+            <label>Height (cm):</label>
+            <input type="number" id="height"></input><br>
+
+            <button type="submit">Check My BMI</button>
+            
+        </fieldset>
+    </form>
+    <section id="resultCard" class="hidden"></section>
+
+    <script src = "script.js"></script>
+</body>
+
+</html>
