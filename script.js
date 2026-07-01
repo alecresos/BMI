@@ -1,7 +1,7 @@
 document.getElementById("bmiForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-  //LOOP
+    //LOOP FOR CHECKING FIELDS
     const inputs = [
         document.getElementById("name"),
         document.getElementById("age"),
@@ -15,6 +15,14 @@ document.getElementById("bmiForm").addEventListener("submit", function (e) {
             return;
         }
     }
+    
+
+    //AGE VALIDATION
+    const age = parseInt(document.getElementById("age").value);
+    if (isNaN(age) || age < 1 || age > 120) {
+        alert("Age should be a valid number between 1 and 120.");
+        return;
+    }
 
 
     const gender = document.querySelector('input[name="gender"]:checked');
@@ -23,7 +31,16 @@ document.getElementById("bmiForm").addEventListener("submit", function (e) {
         return;
     }
 
+    //NAME VALIDATION
     const name = document.getElementById("name").value.trim();
+    const nameRegex = /^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/;
+
+    if (!nameRegex.test(name)) {
+        alert("Name should contain only letters.");
+        return;
+    }
+
+
     const weight = parseFloat(document.getElementById("weight").value);
     const height = parseFloat(document.getElementById("height").value);
 
@@ -90,8 +107,8 @@ document.getElementById("reset").addEventListener("click", function () {
 });
 
 function recordSubmission(record) {
- fetch('https://script.google.com/macros/s/AKfycbwvsugtGTalbu6gvYPElrl9AaIopcC51rNc03x1Y_PVNeqtWEa4GZNeFivB_lLXjoZMLg/exec', {
- method: 'POST',
- body: JSON.stringify(record)
- }).catch(err => console.error('Could not record submission:', err));
+    fetch('https://script.google.com/macros/s/AKfycbwvsugtGTalbu6gvYPElrl9AaIopcC51rNc03x1Y_PVNeqtWEa4GZNeFivB_lLXjoZMLg/exec', {
+        method: 'POST',
+        body: JSON.stringify(record)
+    }).catch(err => console.error('Could not record submission:', err));
 }
